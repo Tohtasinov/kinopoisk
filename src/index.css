@@ -1,0 +1,8 @@
+body {
+  margin: 0;
+  background-image: url(./components/FilmCard/фото1.png);
+  width: 100%;
+  height: 100%;
+  background-repeat: repeat;
+  color: rgb(146, 146, 146);
+}

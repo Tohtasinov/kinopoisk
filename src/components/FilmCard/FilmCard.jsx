@@ -1,4 +1,4 @@
-import { Box, Card, CardMedia, Typography } from "@mui/material";
+import { Card, CardMedia, Grid, Typography } from "@mui/material";
 import React from "react";
 import { Content, MyRating } from "./styles";
 import { useNavigate } from "react-router-dom";
@@ -22,13 +22,13 @@ const FilmCard = ({ film }) => {
       />
       <Content>
         <Typography variant="h4">{film.nameRu}</Typography>
-        <Box>
+        <Grid>
           {film.genres.map((item) => (
             <Typography key={item.genre} color="white" variant="overline">
               {item.genre}{" "}
             </Typography>
           ))}
-        </Box>
+        </Grid>
         <Typography>{film.year}</Typography>
         {film.rating && (
           <MyRating

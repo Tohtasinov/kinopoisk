@@ -14,7 +14,7 @@ export const getFilmDetails = createAsyncThunk(
       `https://kinopoiskapiunofficial.tech/api/v2.2/films/${filmId}`,
       {
         headers: {
-          "X-API-KEY": "b48364fd-0e9e-4820-a173-a93ae273f78b",
+          "X-API-KEY": "b7ac83f4-1ce9-44c4-a096-cb71b0c41bf0",
         },
       }
     );

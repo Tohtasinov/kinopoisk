@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import API from "../../requester";
+import { getFilmBySearchAPI } from "./filmListAPI";
 
 const initialState = {
   list: [],
@@ -14,6 +15,10 @@ export const getFilms = createAsyncThunk("filmsList/getFilms", async () => {
   });
   return response.data;
 });
+export const getFilmBySearch = createAsyncThunk(
+  "filmsList/getFilmsBySearch",
+  getFilmBySearchAPI
+);
 
 const filmsListSlice = createSlice({
   name: "filmsList",
@@ -37,6 +42,16 @@ const filmsListSlice = createSlice({
     builder.addCase(getFilms.rejected, (state, action) => {
       state.error = action.error;
       state.isLoading = false;
+    });
+
+    builder.addCase(getFilmBySearch.pending, (state) => {
+      state.isLoading = true;
+    });
+
+    builder.addCase(getFilmBySearch.fulfilled, (state, action) => {
+      console.log("action: ", action);
+      state.isLoading = false;
+      state.list = action.payload.films;
     });
   },
 });
